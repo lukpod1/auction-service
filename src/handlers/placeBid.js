@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import AWS from 'aws-sdk';
 import commonMiddleware from '../lib/commonMiddleware';
 import createError from 'http-errors';
@@ -19,7 +18,7 @@ async function placeBid(event, context) {
         throw new createError.Forbidden(`You cannot bid on your own auctions!`);
     }
 
-    if (email === auction.highestBid,bidder) {
+    if (email === auction.highestBid.bidder) {
         throw new createError.Forbidden(`You are already the highest bidder`);
     }
 
